@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.12.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.12.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.12.0/firebase-database.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  </head>
+
+<body>
+
+  <div class="sidenav">
+    <span>Lecture Schedule</span>
+    <a target="targetFrame" href="bus-fees.html">Bus Fees</a>
+    <a target="targetFrame" href="class-fees.html">Class Fees</a>
+    <a target="targetFrame" href="student-fees.html">Students</a>
+  </div>
+
+  <div class="main">
+    <div id="header">
+      <p id="title">Admin Panel</p>
+      <img id="log_in_out" src="image/login_icon.png" alt="login_out_icon" />
+      <span id="hint_user">test</span>
+    </div>
+    <iframe src="dashboard-analitics.html" width="100%" height="1000" contenteditable="true" name="targetFrame"
+      allowTransparency="true" scrolling="yes" frameborder="0">
+    </iframe>
+  </div>
+</body>
+
+</html>

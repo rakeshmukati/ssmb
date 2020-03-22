@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+
+
+</head>
+<style>
+    body {
+        text-align: center;
+        background-color: #ffffff;
+    }
+    
+    img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    p {
+        font-size: 25px;
+    }
+    
+    #container_main {
+        width: 448px;
+        height: 500px;
+        padding: 20px;
+        border: 1px solid #dadce0;
+        display: inline-block;
+        border-radius: 10px;
+        margin: 50px;
+    }
+    
+    input {
+        width: 408px;
+        height: 50px;
+        margin: 5px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: .5px solid #dadce0;
+    }
+    
+    .btnLogin,
+    .btnCreate,
+    #btnForgot {
+        border: 0px;
+        display: inline;
+    }
+    
+    .btnLogin {
+        width: 180px;
+        color: #ffffff;
+        background-color: #1a73e8;
+        float: right;
+        margin-right: 14px;
+        border: 1px solid #1a73e8;
+    }
+    
+    .btnCreate,
+    #btnForgot {
+        width: 100px;
+        float: left;
+        color: #1a73e8;
+        background-color: #ffffff;
+        padding-left: 0px;
+        margin-left: 12px;
+    }
+    
+    #sub_con {
+        margin-top: 100px;
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+</style>
+
+<body>
+    <div id="container_main">
+        <img src="image/login-page-icon.png" />
+        <a href="..">
+            <p>Lecture Scheduling</p>
+        </a>
+        <input id="email" type="email" placeholder="email" />
+        <br/>
+        <input id="password" type="password" placeholder="password" />
+        <br/>
+        <input id="btnForgot" type="submit" value="forgot password" />
+        <div id="sub_con">
+            <input class="btnCreate" id="btnCreate" type="submit" value="create account" />
+            <input class="btnLogin" id="btnLogin" type="submit" value="LogIn" />
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("btnLogin").addEventListener("click", function() {
+                document.getElementById("btnLogin").style.color = "#1a73e8";
+                document.getElementById("btnLogin").style.backgroundColor = "#ffffff";
+                var email = document.getElementById("email").value;
+                var pass = document.getElementById("password").value;
+                firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+
+                    document.getElementById("btnLogin").style.backgroundColor = "#1a73e8";
+                    document.getElementById("btnLogin").style.color = "#ffffff";
+                    alert(errorMessage);
+                    // ...
+                });
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        UID = user.uid;
+                        location.replace("..");
+                    }
+                });
+            });
+
+            document.getElementById("btnForgot").addEventListener("click", function() {
+                var passwordResetEmail = document.getElementById("email").value;
+                firebase.auth().sendPasswordResetEmail(passwordResetEmail)
+                    .then(() => {
+                        window.alert('Password reset email sent to ' + passwordResetEmail + ', check your inbox.');
+                    }).catch((error) => {
+                        window.alert(error)
+                    })
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
