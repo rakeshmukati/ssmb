@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Create Student Account
+    </title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+</head>
+<style>
+    html {
+            background-color: #eceff1;
+            text-align: center;
+        }
+        div{
+            background-color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            border-radius: 10px;
+            border: 1px solid #d2d2d2;
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+            height: 25px;
+            width: 300px;
+            background-color: #ffffff;
+        }
+                
+        table {
+            background-color: #f1f1ec;
+            display: inline-block;
+        }
+        
+        
+        input{
+            padding: 10px;
+            height: 30px;
+            width: 250px;
+            border: 1px solid #d2d2d2;
+            border-radius: 5px;
+        }
+        td {
+            border: 1.5px solid #d2d2d2;
+            border-radius: 10px;
+        }
+        button{
+            width: 150px;
+            padding: 10px;
+            height: 50px;
+            border-radius: 5px;
+            background-color: cadetblue;
+            color: white;
+        }
+</style>
+<body>
+    <div class="maindiv">
+        <h2 style="text-align: center;color: #ffffff;background-color:cadetblue;height: 40px;">Add new student</h2>
+       <table style="margin-right: auto;margin-left: auto;text-align: left;">
+           <tr>
+               <td>
+                   Name
+               </td>
+               <td>
+                   <input id="student-name" type="text"/>
+               </td>
+           </tr>
+           <tr >
+            <td>
+               Father name
+            </td>
+            <td>
+                <input id="father-name" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact number
+            </td>
+            <td>
+                <input id="contact" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Class
+            </td>
+            <td>
+                <select id="select-class" style="text-align: center;font-size: large;"><option>select class</option></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Village
+            </td>
+            <td>
+                <select id="select-village"style="text-align: center;font-size: large;"><option>select village</option></select>
+            </td>
+        </tr>
+       </table>
+       <button onclick="upload()" id="submit">Submit</button>
+    </div>  
+    <script src="js/add-student.js"></script> 
+</body>
+
+</html>
