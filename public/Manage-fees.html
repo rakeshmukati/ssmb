@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.12.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.12.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.12.0/firebase-database.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        #manageBusFee,#manageClassFee{
+            display: inline-block;
+            height: 80px;
+            line-height: 80px;
+            border: .5px solid steelblue;
+            background-color: teal;
+            color: white;
+            width: 350px;
+            margin: 20px;
+            border-radius: 10px;
+            font-size: 40px;
+        }
+    </style>
+    <script>
+        function manageBusFee(){
+            location.replace("bus-fees.html");
+        }
+        function manageClassFee(){
+            location.replace("class-fees.html");
+        }
+    </script>
+</head>
+
+<body>
+    <div id="manageBusFee"  onclick="manageBusFee()">
+        Manage Bus Fee
+    </div>
+    <!-- <br> -->
+    <div id="manageClassFee" onclick="manageClassFee()">
+        Manage Class Fee
+    </div>
+</body>
+
+</html>

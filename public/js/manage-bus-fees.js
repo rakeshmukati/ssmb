@@ -53,11 +53,6 @@ function updateTable(data) {
         var cell2 = row.insertCell(1);
         cell2.innerHTML = data[a].feePerMonth;
         cell1.innerHTML = data[a].destination;
-        console.log(data[1]);
     }
 
-}
-
-function deleteRow(a) {
-    document.getElementById("students").deleteRow(a);
 }
