@@ -22,7 +22,10 @@ function upload() {
     var vlg = document.getElementById("selectVillage").value;
     var cnt = document.getElementById("contact").value;
     var cls = document.getElementById("selectClass").value;
-
+    if(n==""||fname==""||vlg=="select village"||cnt==""||cls=="select class"){
+        alert("Fill data properly");
+        
+    }else{
     db.collection("students").add({
         class: cls,
         contact: cnt,
@@ -31,6 +34,14 @@ function upload() {
         name: n
 
     });
+    document.getElementById("studentName").value="";
+    document.getElementById("fatherName").value="";
+    document.getElementById("selectVillage").value="select village";
+    document.getElementById("contact").value="";
+    document.getElementById("selectClass").value="select class";
+    alert("Data saved successfully");
+    
+    }
 }
 function prepareOption(id, values) {
     var select = document.getElementById(id);
@@ -49,5 +60,14 @@ function fetchAdminData() {
         console.log("data",ADMIN);
         prepareOption("selectClass", ADMIN.class);
         // prepareOption("selectVillage", ADMIN.destination);
+        db.collection("busFees").onSnapshot(function (querySnapshot) {
+            var buses = [];
+            querySnapshot.forEach(function (doc) {
+                let d = doc.data();
+                buses.push(d.destination);
+            });
+            console.log(buses);
+            prepareOption("selectVillage",buses);
+        });
     });
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        manage class fees
+    </title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <style>
+        html {
+            background-color: #eceff1;
+            text-align: center;
+        }
+        
+        td {
+            padding: 10px;
+            height: 25px;
+            width: 300px;
+            background-color: #ffffff;
+        }
+                
+        table {
+            font-size: larger;
+            background-color: #f1f1ec;
+            display: inline-block;
+        }
+        
+        
+        input{
+            font-size: larger;
+            padding: 10px;
+            height: 30px;
+            width: 250px;
+            border: 1px solid #d2d2d2;
+            border-radius: 5px;
+        }
+        button{
+            width: 150px;
+            padding: 10px;
+            height: 50px;
+            border-radius: 5px;
+            background-color: cadetblue;
+            color: white;
+        }
+        
+        div{
+            background-color: #ffffff;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid #d2d2d2;
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+        }
+        #students {
+            background-color: #ffffff;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid #d2d2d2;
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+        }
+        td {
+            border: 1.5px solid #d2d2d2;
+            border-radius: 10px;
+        }
+
+        tr:first-child td{
+            color: #ffffff;
+            border: 1.5px solid teal;
+            background-color: teal;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input placeholder="class" id="selectClass" />
+        <input placeholder="monthly fees " id="classFee" />
+        <input placeholder="yearly fees " id="classFeeyear" />
+        <button id="btnAdd" onclick="addClass()" >ADD</button>
+    </div>
+    <br>
+    <table id="students">
+    </table>
+    <br/>
+    <script src="js/manage-class-fees.js"></script>
+</body>
+
+</html>

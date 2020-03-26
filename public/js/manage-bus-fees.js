@@ -18,10 +18,17 @@ window.onload = function () {
 function addBus() {
     var des = document.getElementById("destination").value;
     var fee = document.getElementById("busFee").value;
+    if(des==""||fee==""){
+        alert("Enter data properly");
+    }else{
     db.collection("busFees").add({
         destination: des,
         feePerMonth: fee
     });
+    document.getElementById("destination").value="";
+    document.getElementById("busFee").value="";
+    alert("Data saved successfully");
+    }
 }
 
 
@@ -53,6 +60,33 @@ function updateTable(data) {
         var cell2 = row.insertCell(1);
         cell2.innerHTML = data[a].feePerMonth;
         cell1.innerHTML = data[a].destination;
+        cell1.setAttribute("contenteditable", true);
+        cell2.setAttribute("contenteditable", true);
     }
 
+}
+function submit(){
+    var oTable = document.getElementById('students');
+
+    //gets rows of table
+    var rowLength = oTable.rows.length;
+
+    //loops through rows    
+    for (i = 1; i < rowLength; i++){
+
+      //gets cells of current row  
+       var oCells = oTable.rows.item(i).cells;
+
+       //gets amount of cells of current row
+       var cellLength = oCells.length;
+
+       //loops through each cell in current row
+       for(var j = 0; j < cellLength; j++){
+
+              // get your cell info here
+
+              var cellVal = oCells.item(j).innerHTML;
+              console.log(cellVal);
+           }
+    }
 }
